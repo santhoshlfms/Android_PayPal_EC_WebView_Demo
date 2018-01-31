@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PayPal Express Checkout Demo in Webview</string>
+    <string name="info_text">Sample Shopping Cart to Showcase PayPal Express Checkout in Webview</string>
+</resources>
