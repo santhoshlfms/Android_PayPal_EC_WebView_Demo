@@ -35,8 +35,6 @@ public class ProcessComplete extends AppCompatActivity {
         String status = getIntent().getStringExtra("STATUS");
         String id = getIntent().getStringExtra("ID");
         String payerId = getIntent().getStringExtra("PAYERID");
-
-
         TextView textView = (TextView) findViewById(R.id.status);
 
         final TextView textLoader = (TextView) findViewById(R.id.statusLoading);
@@ -53,17 +51,14 @@ public class ProcessComplete extends AppCompatActivity {
                 properties.load(inputStream);
                 String url = properties.get("getPaymentDetails").toString();
                 url = url+"?token="+id+"&payerID="+payerId;
-                Log.d("URLURL : ", url);
                 JSONObject obj = new JSONObject();
                 StringEntity requestData = new StringEntity(obj.toString());
 
                 client.post( url,  new JsonHttpResponseHandler(){
                     @Override
                     public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
-                        Log.d("My Result Json", String.valueOf(response));
                         // pass the result to an sdk
                         highlightJsView.setTheme(Theme.ANDROID_STUDIO);
-
                         highlightJsView.setHighlightLanguage(Language.AUTO_DETECT);
                         try{
                             highlightJsView.setSource(String.valueOf(String.valueOf(response.toString(4))));

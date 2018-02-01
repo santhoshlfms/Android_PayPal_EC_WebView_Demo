@@ -28,14 +28,13 @@ public class PayPalWebView extends AppCompatActivity{
         webview.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                Log.d("URL URL", url);
                 if(url.contains("demo.sample.com")){
                     Uri _url = Uri.parse(url);
                     Intent intent = new Intent(PayPalWebView.this, ProcessComplete.class);
+                    //Passing data to ProcessComplete class, this is my choice and can be handled in a different way
                     intent.putExtra("ID", _url.getQueryParameter("id"));
                     intent.putExtra("STATUS", _url.getQueryParameter("status"));
                     intent.putExtra("PAYERID",_url.getQueryParameter("payerId"));
-
                     startActivity(intent);
                     PayPalWebView.this.finish();
                 }

@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
                     // make api call here ....
 
-                    Log.d("My Product Json", String.valueOf(productJson));
                     AsyncHttpClient client = new AsyncHttpClient();
                     StringEntity requestData = new StringEntity(productJson.toString());
                     Properties properties = new Properties();
@@ -64,16 +63,13 @@ public class MainActivity extends AppCompatActivity {
                     InputStream inputStream = assetManager.open("app.properties");
                     properties.load(inputStream);
                     String url = properties.get("createPayments").toString();
-                    Log.d("URL Create Payments", url);
                     client.post(getApplicationContext(), url, requestData, "application/json", new JsonHttpResponseHandler(){
                         @Override
                         public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
                             Toast.makeText(getApplicationContext(), "Got response from server" , Toast.LENGTH_SHORT).show();
-                            Log.d("My Result Json", String.valueOf(response));
 
                             try{
                                 String url = Utility.getUrlFromJSONArray(response);
-                                Log.d("URL :", url);
                                 if(!url.equals(null)) {
                                     showLoader(false);
                                         Intent intent = new Intent(MainActivity.this, PayPalWebView.class);
