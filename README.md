@@ -20,4 +20,4 @@ Android PayPal Express Checkout Demo using WebView
 
 ##### Screencast
 
-![ScreenShot](https://github.com/santhoshlfms/Android_PayPal_EC_CustomTab_Demo/blob/master/gif_screenshot.gif)
+![ScreenShot](gif_screenshot.gif)
