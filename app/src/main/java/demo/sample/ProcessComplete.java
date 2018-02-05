@@ -54,7 +54,7 @@ public class ProcessComplete extends AppCompatActivity {
                 JSONObject obj = new JSONObject();
                 StringEntity requestData = new StringEntity(obj.toString());
 
-                client.post( url,  new JsonHttpResponseHandler(){
+                client.post(url,  new JsonHttpResponseHandler(){
                     @Override
                     public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
                         // pass the result to an sdk

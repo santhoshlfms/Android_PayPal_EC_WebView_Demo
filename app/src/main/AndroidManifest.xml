@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".PayPalWebView"></activity>
-
+            <!--Open this activity after the execute api is executed-->
         <activity android:name=".ProcessComplete">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
